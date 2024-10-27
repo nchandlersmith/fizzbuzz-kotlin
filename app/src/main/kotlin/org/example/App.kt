@@ -1,8 +1,8 @@
 package org.example
 
 class App {
-    fun fizzBuzz(number: Number): String {
-        if (2 == number) {
+    fun fizzBuzz(number: Int): String {
+        if (0 == number % 2) {
             return "Fizz"
         }
         return number.toString()
