@@ -19,6 +19,11 @@ repositories {
 }
 
 dependencies {
+    var kotestVerion = "5.9.1"
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVerion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVerion")
+    testImplementation("io.kotest:kotest-property:$kotestVerion")
+
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
@@ -44,6 +49,5 @@ application {
 }
 
 tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }

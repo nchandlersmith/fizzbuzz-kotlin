@@ -1,13 +1,13 @@
 package org.example
 
+import io.kotest.matchers.shouldBe
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
 class AppTest {
     @Test
-    fun fizzBuzz_given1_return1() {
+    fun `fizzBuzz given 1 returns 1`() {
         val app = App()
         val result = app.fizzBuzz(1)
-        assertEquals("1", result)
+        result shouldBe "1"
     }
 }
