@@ -2,7 +2,10 @@ package org.example
 
 class App {
     fun fizzBuzz(number: Number): String {
-        return "1"
+        if (2 == number) {
+            return "Fizz"
+        }
+        return number.toString()
     }
 }
 

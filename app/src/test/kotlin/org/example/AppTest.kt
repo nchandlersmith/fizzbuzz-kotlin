@@ -10,4 +10,10 @@ class AppTest {
         val result = app.fizzBuzz(1)
         result shouldBe "1"
     }
+    @Test
+    fun `fizzBuzz given 2 returns Fizz`() {
+        val app = App()
+        val result = app.fizzBuzz(2)
+        result shouldBe "Fizz"
+    }
 }
