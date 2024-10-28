@@ -28,4 +28,11 @@ class AppTest : FunSpec ({
             "Buzz" == app.fizzBuzz(n)
         }
     }
+    test("fizzBuzz given number divisible by 3 & 5 return Buzz") {
+        val app = App()
+        val divisibleBy5Not3 = Arb.int(1..100).filter { it % 5 == 0 && it % 3 == 0 }
+        forAll(divisibleBy5Not3) { n ->
+            "FizzBuzz" == app.fizzBuzz(n)
+        }
+    }
 })

@@ -2,6 +2,9 @@ package org.example
 
 class App {
     fun fizzBuzz(number: Int): String {
+        if (0 == number % 15) {
+            return "FizzBuzz"
+        }
         if (0 == number % 3) {
             return "Fizz"
         }
