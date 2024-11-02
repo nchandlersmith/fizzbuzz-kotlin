@@ -7,7 +7,7 @@ import io.kotest.property.arbitrary.int
 import io.kotest.property.forAll
 
 class AppTest : FunSpec ({
-    test("fizzBuzz given 1 returns 1") {
+    test("fizzBuzz indivisible by 3 or 5 returns number as string") {
         val app = App()
         val divisibleBy3Not5 = Arb.int(1..100).filter { it % 3 != 0 && it % 5 != 0 }
         forAll(divisibleBy3Not5) { n ->
