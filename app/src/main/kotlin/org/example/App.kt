@@ -53,5 +53,10 @@ fun indivisibleRule(returnString: String, number: Int): String {
 }
 
 fun main() {
-    println("Main invoked.")
+    println("Enter a number")
+    val number = readLine()
+    App().run(number!!).fold(
+        { error -> println(error.message) },
+        { println(it) }
+    )
 }
