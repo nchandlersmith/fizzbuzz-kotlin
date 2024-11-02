@@ -1,11 +1,15 @@
 package org.example
 
+import arrow.core.Either
+
 class App {
-    fun run(inputString: String): String {
+    fun run(inputString: String): Either<InputError, String> {
         val number = inputString.toInt()
-        return fizzBuzz(number)
+        return Either.Right(fizzBuzz(number))
     }
 }
+
+class InputError(val message: String)
 
 fun fizzBuzz(number: Int): String {
     var returnString = ""
