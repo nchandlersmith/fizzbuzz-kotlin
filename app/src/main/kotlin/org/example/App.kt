@@ -1,28 +1,21 @@
 package org.example
 
-import arrow.core.Either
-import arrow.core.getOrElse
-import arrow.core.right
-import jdk.dynalink.Operation
-
 class App {
     fun run(inputString: String): String {
         val number = inputString.toInt()
-        return fizzBuzz(number).getOrElse { "" }
+        return fizzBuzz(number)
     }
 }
 
-fun fizzBuzz(number: Int): Either<ProcessError, String> {
+fun fizzBuzz(number: Int): String {
     var returnString = ""
     val rules = listOf(fizzRule, buzzRule)
     for (rule in rules) {
         returnString = rule(number, returnString)
     }
     returnString = indivisibleRule(returnString, number)
-    return Either.Right(returnString)
+    return returnString
 }
-
-class ProcessError(val message: String)
 
 val fizzRule: (Int, String) -> String = { number, currentString ->
     rule(number, currentString, "Fizz", fun (number): Boolean {
