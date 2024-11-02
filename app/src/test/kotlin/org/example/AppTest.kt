@@ -42,7 +42,7 @@ class AppTest : FunSpec ({
     }
     test("fizzBuzz given non integer number return error") {
         val app = App()
-        val result = app.run("Hello")
-        result.leftOrNull()?.message shouldBe "Input: [Hello] is not a valid integer."
+        val result = app.run("1.5")
+        result.leftOrNull()?.message shouldBe "Input: [1.5] is not a valid integer."
     }
 })
