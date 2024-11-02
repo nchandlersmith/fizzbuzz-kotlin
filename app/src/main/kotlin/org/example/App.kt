@@ -2,16 +2,17 @@ package org.example
 
 class App {
     fun fizzBuzz(number: Int): String {
-        if (0 == number % 15) {
-            return "FizzBuzz"
-        }
+        var returnString = ""
         if (0 == number % 3) {
-            return "Fizz"
+            returnString += "Fizz"
         }
         if (0 == number % 5) {
-            return "Buzz"
+            returnString += "Buzz"
         }
-        return number.toString()
+        if (returnString == "") {
+            return number.toString()
+        }
+        return returnString
     }
 }
 
