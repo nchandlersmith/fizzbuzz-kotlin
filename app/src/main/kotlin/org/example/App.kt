@@ -10,16 +10,24 @@ class App {
 fun fizzBuzz(number: Int): String {
     var returnString = ""
 
-    returnString = rule(number, returnString, "Fizz", fun (number): Boolean {
-        return 0 == number % 3
-    })
-    returnString = rule(number, returnString, "Buzz", fun (number): Boolean {
-        return 0 == number % 5
-    })
+    returnString = fizzRule(number, returnString)
+    returnString = buzzRule(number, returnString)
     if (returnString == "") {
         return number.toString()
     }
     return returnString
+}
+
+fun buzzRule(number: Int, currentString: String) : String {
+    return rule(number, currentString, "Buzz", fun (number): Boolean {
+        return 0 == number % 5
+    })
+}
+
+fun fizzRule(number: Int, currentString: String) : String {
+    return rule(number, currentString, "Fizz", fun (number): Boolean {
+        return 0 == number % 3
+    })
 }
 
 fun rule(number:Int, stringIn: String, modifier:String, check: (Int) -> Boolean): String {
