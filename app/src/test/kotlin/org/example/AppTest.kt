@@ -11,28 +11,28 @@ class AppTest : FunSpec ({
         val app = App()
         val divisibleBy3Not5 = Arb.int(1..100).filter { it % 3 != 0 && it % 5 != 0 }
         forAll(divisibleBy3Not5) { n ->
-            n.toString() == app.run(n)
+            n.toString() == app.run(n.toString())
         }
     }
     test("fizzBuzz given number divisible by 3 return Fizz") {
         val app = App()
         val divisibleBy3Not5 = Arb.int(1..100).filter { it % 3 == 0 && it % 5 != 0 }
         forAll(divisibleBy3Not5) { n ->
-            "Fizz" == app.run(n)
+            "Fizz" == app.run(n.toString())
         }
     }
     test("fizzBuzz given number divisible by 5 return Buzz") {
         val app = App()
         val divisibleBy5Not3 = Arb.int(1..100).filter { it % 5 == 0 && it % 3 != 0 }
         forAll(divisibleBy5Not3) { n ->
-            "Buzz" == app.run(n)
+            "Buzz" == app.run(n.toString())
         }
     }
     test("fizzBuzz given number divisible by 3 & 5 return Buzz") {
         val app = App()
         val divisibleBy5Not3 = Arb.int(1..100).filter { it % 5 == 0 && it % 3 == 0 }
         forAll(divisibleBy5Not3) { n ->
-            "FizzBuzz" == app.run(n)
+            "FizzBuzz" == app.run(n.toString())
         }
     }
 })

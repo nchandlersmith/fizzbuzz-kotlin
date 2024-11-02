@@ -1,7 +1,8 @@
 package org.example
 
 class App {
-    fun run(number: Int): String {
+    fun run(inputString: String): String {
+        val number = inputString.toInt()
         var returnString = ""
         if (0 == number % 3) {
             returnString += "Fizz"
