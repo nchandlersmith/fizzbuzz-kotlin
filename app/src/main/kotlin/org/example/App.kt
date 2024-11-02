@@ -1,5 +1,7 @@
 package org.example
 
+import jdk.dynalink.Operation
+
 class App {
     fun run(inputString: String): String {
         val number = inputString.toInt()
@@ -18,15 +20,15 @@ fun fizzBuzz(number: Int): String {
     return returnString
 }
 
-fun buzzRule(number: Int, currentString: String) : String {
-    return rule(number, currentString, "Buzz", fun (number): Boolean {
-        return 0 == number % 5
-    })
-}
-
 fun fizzRule(number: Int, currentString: String) : String {
     return rule(number, currentString, "Fizz", fun (number): Boolean {
         return 0 == number % 3
+    })
+}
+
+fun buzzRule(number: Int, currentString: String) : String {
+    return rule(number, currentString, "Buzz", fun (number): Boolean {
+        return 0 == number % 5
     })
 }
 
