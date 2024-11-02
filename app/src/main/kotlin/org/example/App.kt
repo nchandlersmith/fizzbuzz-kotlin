@@ -1,7 +1,7 @@
 package org.example
 
 class App {
-    fun fizzBuzz(number: Int): String {
+    fun run(number: Int): String {
         var returnString = ""
         if (0 == number % 3) {
             returnString += "Fizz"
@@ -15,6 +15,8 @@ class App {
         return returnString
     }
 }
+
+
 
 fun main() {
     println("Main invoked.")
