@@ -19,10 +19,13 @@ repositories {
 }
 
 dependencies {
-    var kotestVerion = "5.9.1"
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVerion")
-    testImplementation("io.kotest:kotest-assertions-core:$kotestVerion")
-    testImplementation("io.kotest:kotest-property:$kotestVerion")
+    implementation("io.arrow-kt:arrow-core:1.2.4")
+    implementation("io.arrow-kt:arrow-fx-coroutines:1.2.4")
+
+    val kotestVersion = "5.9.1"
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.kotest:kotest-property:$kotestVersion")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
