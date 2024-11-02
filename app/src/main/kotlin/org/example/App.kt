@@ -15,10 +15,7 @@ fun fizzBuzz(number: Int): String {
     for (rule in rules) {
         returnString = rule(number, returnString)
     }
-
-    if (returnString == "") {
-        return number.toString()
-    }
+    returnString = indivisibleRule(returnString, number)
     return returnString
 }
 
@@ -40,6 +37,14 @@ fun rule(number:Int, stringIn: String, modifier:String, check: (Int) -> Boolean)
         return newString
     }
     return stringIn
+}
+
+fun indivisibleRule(returnString: String, number: Int): String {
+    var returnString1 = returnString
+    if (returnString1 == "") {
+        returnString1 = number.toString()
+    }
+    return returnString1
 }
 
 fun main() {
