@@ -11,23 +11,25 @@ class App {
 
 fun fizzBuzz(number: Int): String {
     var returnString = ""
+    val rules = listOf(fizzRule, buzzRule)
+    for (rule in rules) {
+        returnString = rule(number, returnString)
+    }
 
-    returnString = fizzRule(number, returnString)
-    returnString = buzzRule(number, returnString)
     if (returnString == "") {
         return number.toString()
     }
     return returnString
 }
 
-fun fizzRule(number: Int, currentString: String) : String {
-    return rule(number, currentString, "Fizz", fun (number): Boolean {
+val fizzRule: (Int, String) -> String = { number, currentString ->
+    rule(number, currentString, "Fizz", fun (number): Boolean {
         return 0 == number % 3
     })
 }
 
-fun buzzRule(number: Int, currentString: String) : String {
-    return rule(number, currentString, "Buzz", fun (number): Boolean {
+val buzzRule: (Int, String) -> String = { number, currentString ->
+    rule(number, currentString, "Buzz", fun (number): Boolean {
         return 0 == number % 5
     })
 }
