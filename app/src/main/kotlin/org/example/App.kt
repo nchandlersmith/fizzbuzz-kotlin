@@ -4,7 +4,10 @@ import arrow.core.Either
 
 class App {
     fun run(inputString: String): Either<InputError, String> {
-        val number = inputString.toInt()
+        val number = inputString.toIntOrNull()
+        if (number == null) {
+            return Either.Left(InputError("Input: [%s] is not a valid integer.".format(inputString)))
+        }
         return Either.Right(fizzBuzz(number))
     }
 }

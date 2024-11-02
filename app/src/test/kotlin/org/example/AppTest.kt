@@ -1,6 +1,8 @@
 package org.example
 
+import arrow.core.Either
 import arrow.core.getOrElse
+import arrow.core.left
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.shouldBe
@@ -37,5 +39,10 @@ class AppTest : FunSpec ({
         forAll(divisibleBy5Not3) { n ->
             app.run(n.toString()).getOrElse { "" } == "FizzBuzz"
         }
+    }
+    test("fizzBuzz given non integer number return error") {
+        val app = App()
+        val result = app.run("Hello")
+        result.leftOrNull()?.message shouldBe "Input: [Hello] is not a valid integer."
     }
 })
